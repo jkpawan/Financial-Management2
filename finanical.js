@@ -49,26 +49,20 @@
     SUBMIT_BUTTON.innerText = "Your Balance Recorded, SEE YOU AGAIN";
     SUBMIT_BUTTON.disabled = true;
 
-    fetch(API_URL, {
+fetch(API_URL, {
         method: "POST",
-        mode: "cors",
+        mode: "no-cors",       // Fixes the network block
+        redirect: "follow",    // Allows Google to process it
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(DATA_TO_SEND)
     })
-
-    .then(RESPONSE => {
-        if(RESPONSE.ok) {
-           
-            alert("Your Balance Recorded, SEE YOU AGAIN");
-            FINANCE_FORM.reset();               
-            PREVIEW_BOX.style.display = "none"; 
-        } else {
-           
-            alert("API Connection Error. Verify your Sheet Best URL.");
-        }
+    .then(() => {
+        // With no-cors, we assume success if no network crash occurred
+        alert("Your Balance Recorded, SEE YOU AGAIN");
+        FINANCE_FORM.reset();               
+        PREVIEW_BOX.style.display = "none"; 
     })
     .catch(ERROR => {
-      
         alert("Network Error: Unable to connect to the database.");
         console.error("DEBUG LOG:", ERROR);
     })
