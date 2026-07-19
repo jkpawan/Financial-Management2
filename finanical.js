@@ -10,7 +10,7 @@
             const PREVIEW_BOX = document.getElementById('previewbox'); 
             const SUBMIT_BUTTON = document.getElementById('submitBtn');
 
-            const API_URL = "https://api.sheetbest.com/sheets/2d817817-832d-410f-b7ba-fab762530284";
+            const API_URL = "https://script.google.com/macros/s/AKfycbxeBHmv3XHhudMU5UqcKmGd5MNbArLD3XTGc9VyHYF3vvxSdPwbY_nKSKVhTGdO5zPxwQ/exec";
 
             PREVIEW_BUTTON.addEventListener('click', function(){
                      const TRANSACTION_TYPE = TYPE_INPUT.value;
